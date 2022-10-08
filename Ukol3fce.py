@@ -47,8 +47,8 @@ if accuracy == True:
     def sms (zprava):
         delka_sms = len(zprava)
         print(f'Délka zprávy je {delka_sms}.')
-        pocet_sms = (delka_sms//20) 
-        if delka_sms % 20 != 0:
+        pocet_sms = (delka_sms//180) 
+        if delka_sms % 180 != 0:
             pocet_sms +=1
         cena = pocet_sms * 3
         return cena
