@@ -15,7 +15,6 @@ def testovani (cislo):
             if cislo.replace(cislo[(znak)], "") == "":       
                 upravene = "bez číslic"   
                 delka = 0
-                # print(delka)
                 # znak -= 1
             
             else:
