@@ -28,4 +28,5 @@ if accuracy == True:
 
     price = sms(zprava)
     print(f'Cena zprávy je {price}.')
+    
 
