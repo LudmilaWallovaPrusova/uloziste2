@@ -32,7 +32,7 @@ class Kucharka:
         self.nazev_kucharky = nazev_kucharky
         self.autor = autor
         self.recepty = recepty
-# recepty - list objektu tridy Recept, metoda __init__ ji nastavuje vzdy na prazdny seznam []   TOTO VŮBCE NETUŠÍM JAK UDĚLAT
+# recepty - list objektu tridy Recept, metoda __init__ ji nastavuje vzdy na prazdny seznam []   TOTO VŮBCE NETUŠÍM JAK UDĚLAT :-(
 #             
     def __str__(self):
         return f"Kniha {self.nazev_kucharky}, kterou napsal {self.autor}, má {self.recepty} receptů."
