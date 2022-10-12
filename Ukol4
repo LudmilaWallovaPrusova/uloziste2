@@ -1,0 +1,55 @@
+class Recept:
+    def __init__ (self, nazev, kucharka, narocnost, url, vyzkouseno):
+        self.nazev = nazev
+        self.kucharka = kucharka
+        self.narocnost = narocnost
+        self.url = url
+        self.vyzkouseno = False
+    
+    def zmen_narocnost (self, nova_hodnota):
+        self.narocnost += nova_hodnota - self.narocnost
+
+    def zkouska (self):
+        self.vyzkouseno = True
+
+
+    def __str__(self):
+        if self.vyzkouseno == False:
+            return f"Recept {self.nazev} s narocnosti {self.narocnost}, není vyzkoušen."
+        else:
+            return f"Recept {self.nazev} s narocnosti {self.narocnost}, je vyzkoušen."
+
+knedlik = Recept("Karlovarský knedlík", "Růža", 40, "knedlici.cz", False)
+
+print(knedlik)
+knedlik.zmen_narocnost(29)
+knedlik.zkouska()
+print(knedlik)
+
+
+class Kucharka:
+    def __init__(self, nazev_kucharky, autor, recepty):
+        self.nazev_kucharky = nazev_kucharky
+        self.autor = autor
+        self.recepty = recepty
+# recepty - list objektu tridy Recept, metoda __init__ ji nastavuje vzdy na prazdny seznam []   TOTO VŮBCE NETUŠÍM JAK UDĚLAT
+#             
+    def __str__(self):
+        return f"Kniha {self.nazev_kucharky}, kterou napsal {self.autor}, má {self.recepty} receptů."
+
+    def pocet_receptu(self):
+      pocet =  len(self.recepty)
+      return pocet
+# vraci cislo reprezentujici pocet receptu v atributu recepty KDYŽ NEUMÍM DEFINOVAT, TAK NEUMÍM ANI SPOČÍTAT
+
+    def pridej_recept (self, recept):
+        recept.append = Recept("Koláč", "Máňa", 100, "kolace.cz", False)  
+# prida do atributu recepty objekt recepty ktery je v argumentu recept      NECHÁPU ZADÁNÍ
+    
+
+    def __str___(self):
+        return f"Kniha {self.nazev_kucharky} od autora {self.autor} obsahuje {self.recepty} receptů."
+# vraci hezky vypis kucharky (necham na vas ktere atributy chcete do vypisu dat)
+
+svazek1 = Kucharka("Vaříme doma", "Novák", 17)
+print(svazek1)

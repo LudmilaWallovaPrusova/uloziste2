@@ -1,0 +1,31 @@
+from random import randint, random
+
+srajtofle = 5000
+
+for _ in range(10):
+
+    def roulette (rada, sazka):
+        nahoda = randint(0,36)
+        print(nahoda)
+        if nahoda == 0:
+            print(f('Prohráváš, padla {nahoda}'))
+            c_rady = 9
+        elif nahoda % 3 == 0:
+            c_rady = 3
+        elif nahoda % 3 == 2:
+            c_rady = 2
+        elif (nahoda % 3) == 1:
+            c_rady = 1
+        print(c_rady)
+
+        if c_rady == rada:
+            vyhra = sazka * 2
+            print(f'trefils, vyhráváš {vyhra} Kč')
+        elif c_rady != rada:
+            vyhra = -sazka
+            print(f'netrefil, netrefil, rozluč se se {sazka} Kč')
+        
+        return vyhra
+
+    srajtofle += roulette(2,100)
+    print(srajtofle)

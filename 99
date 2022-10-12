@@ -1,0 +1,6 @@
+cislo = "00420585513852"
+if cislo [0:5] == "00420":     
+    print ("ano")
+else:
+    print ("ne")
+
