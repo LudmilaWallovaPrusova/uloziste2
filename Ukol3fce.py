@@ -1,43 +1,18 @@
 cislo = input("Zadejte telefonní číslo BEZ MEZER: ")
 
-def testovani (cislo):
-    delka = len(cislo)
-    znak = 0 
-    for _ in range(delka): 
-        hodnota_znaku = cislo[(znak)]
-        # print(f'Hodnota znaku je {hodnota_znaku}.')
-        
-        if cislo[(znak)] in "0123456789": 
-            if znak + 1 < delka:     
-                znak += 1
-                upravene = cislo
-        else:
-            if cislo.replace(cislo[(znak)], "") == "":       
-                upravene = "bez číslic"   
-                delka = 0
-                     
-            else:
-                upravene = cislo.replace(cislo[(znak)], "")
-                # print(f'Císlo po vyloučení literek je {upravene}')
-                cislo = upravene
-                delka = len(cislo)
-                # print(delka)
-                if znak + 1 >= delka :     
-                    znak -= 1                
-    return upravene
+def spravnost(cislo):
+    if (len(cislo) == 13 and cislo[0:5] !="+420"):
+        print(f'Číslo má chybně předvolbu. Zkus to znovu')
+        vracej = False
 
-adapted = testovani(cislo)
-print(f'Zadané číslo je {adapted}.')
-
-def spravnost(adapted):
-    if len(adapted) != 9 and len(adapted) != 12:
-        print(f'Číslo neobsahuje odpovídající počet číslic. Zkus to znovu')
+    elif len(cislo) != 9 and len(cislo) != 13:
+        print(f'Číslo neobsahuje odpovídající počet znaků. Zkus to znovu')
         vracej = False
     else:
-        print(f'Číslo má správný formát.')
+        print(f'Číslo má správný počet znaků.')
         vracej = True
     return vracej
-accuracy = spravnost(adapted)    
+accuracy = spravnost(cislo)  
 
 if accuracy == True:
     zprava = input("Zadejte zprávu: ") 
