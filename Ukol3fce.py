@@ -14,6 +14,7 @@ def spravnost(cislo):
     return vracej
 accuracy = spravnost(cislo)  
 
+
 if accuracy == True:
     zprava = input("Zadejte zprávu: ") 
 
@@ -28,5 +29,5 @@ if accuracy == True:
 
     price = sms(zprava)
     print(f'Cena zprávy je {price}.')
-    
+
 
