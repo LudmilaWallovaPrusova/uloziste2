@@ -1,7 +1,6 @@
 class Recept:
-    def __init__ (self, nazev, kucharka, narocnost, url, vyzkouseno):
+    def __init__ (self, nazev, narocnost, url):
         self.nazev = nazev
-        self.kucharka = kucharka
         self.narocnost = narocnost
         self.url = url
         self.vyzkouseno = False
@@ -19,37 +18,40 @@ class Recept:
         else:
             return f"Recept {self.nazev} s narocnosti {self.narocnost}, je vyzkoušen."
 
-knedlik = Recept("Karlovarský knedlík", "Růža", 40, "knedlici.cz", False)
+knedlik = Recept("Vaříme doma", 40, "knedlici.cz")
+ryze = Recept("Vaříme doma", 17, "ryze.cz")
 
 print(knedlik)
 knedlik.zmen_narocnost(29)
 knedlik.zkouska()
 print(knedlik)
 
-
 class Kucharka:
-    def __init__(self, nazev_kucharky, autor, recepty):
-        self.nazev_kucharky = nazev_kucharky
+    def __init__(self, nazev, autor):
+        self.nazev = nazev
         self.autor = autor
-        self.recepty = recepty
-# recepty - list objektu tridy Recept, metoda __init__ ji nastavuje vzdy na prazdny seznam []   TOTO VŮBCE NETUŠÍM JAK UDĚLAT :-(
-#             
+        self.recepty = []
+# recepty - list objektu tridy Recept, metoda __init__ ji nastavuje vzdy na prazdny seznam []
+
     def __str__(self):
-        return f"Kniha {self.nazev_kucharky}, kterou napsal {self.autor}, má {self.recepty} receptů."
-
-    def pocet_receptu(self):
-      pocet =  len(self.recepty)
-      return pocet
-# vraci cislo reprezentujici pocet receptu v atributu recepty KDYŽ NEUMÍM DEFINOVAT, TAK NEUMÍM ANI SPOČÍTAT
-
-    def pridej_recept (self, recept):
-        recept.append = Recept("Koláč", "Máňa", 100, "kolace.cz", False)  
-# prida do atributu recepty objekt recepty ktery je v argumentu recept      NECHÁPU ZADÁNÍ
-    
-
-    def __str___(self):
-        return f"Kniha {self.nazev_kucharky} od autora {self.autor} obsahuje {self.recepty} receptů."
+        return f"Kniha {self.nazev}, kterou napsal {self.autor}, obsahuje recepty {self.recepty}:"
 # vraci hezky vypis kucharky (necham na vas ktere atributy chcete do vypisu dat)
 
-svazek1 = Kucharka("Vaříme doma", "Novák", 17)
+    def pocet_receptu(self):
+        vracej = len(self.recepty)
+        print(vracej)
+        return vracej
+# vraci cislo reprezentujici pocet receptu v atributu recepty 
+
+    def pridej_recept (self, recept):
+        self.recepty.append(recept)
+#   prida do atributu recepty objekt recepty ktery je v argumentu recept      NECHÁPU, ta slova mi dohromady nedávají smysl
+  
+svazek1 = Kucharka("Vaříme doma", "Novák")
+
+print(svazek1)
+svazek1.pocet_receptu()
+svazek1.pridej_recept("rohlicky")
+svazek1.pridej_recept("ryze")
+svazek1.pocet_receptu()
 print(svazek1)
