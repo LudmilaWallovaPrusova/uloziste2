@@ -489,8 +489,50 @@ staty = [
     {'name': 'Zimbabwe', 'capital': 'Harare', 'region': 'Africa', 'subregion': 'Eastern Africa', 'population': 14240168,
      'area': 390757.0}]
 
-staty_asie = [ stat['name'] for stat in staty if stat['region'] == "Asia"]
+
+# 1) vypsat všechny státy
+# nejdřív do jednoho listu
+staty_vse = [stat['name']  for stat in staty]
+print(staty_vse)
+# a pak pod sebe
+[print(stat['name']) for stat in staty]
+
+# 2) vypsat státy Asie s hlavním městem
+# nejdřív jako seznam seznamů
+staty_asie = [{stat['name'], stat['capital']}  for stat in staty if stat['region'] == "Asia"]
 print(staty_asie)
+# # a pak pod sebe
+[print(stat['name']) for stat in staty if stat['region'] == "Asia"]
+
+# 4) Spocitej celkovou plochu ('area') regionu 'Europe'  - nejdřív zkouším na populaci, bo to funguje
+
+# vypsat státy Evropy s počtem obyvatel - proč se mění pořadí ve výpisu?? jednou první stát, podruhé populace - nechápu
+staty_evropy_popul = [{stat['name'], stat['population']}  for stat in staty if stat['region'] == "Europe"]
+print(staty_evropy_popul)
+# vypsat počet obyvatel evropských států
+# staty_evropy_popul1 = [{stat['population']} for stat in staty if stat['region'] == "Europe"]       NEFUNGUJE
+# print(staty_evropy_popul1)
+staty_evropy_popul2 = [sum({stat['population']}) for stat in staty if stat['region'] == "Europe"]
+# print(staty_evropy_popul2)
+# sečíst počty obyvatel za celou Evropu
+staty_evropy_popul3 = sum(staty_evropy_popul2)
+print(staty_evropy_popul3)
+
+# a teď totéž aplikovat na plochu - ale area není všude 
+# plochy států za celou Evropu
+# staty_evropy_area1 = [{stat.get('area',0)} for stat in staty if stat['region'] == "Europe"]
+# print(staty_evropy_area1)
+staty_evropy_area2 = [sum({stat.get('area',0)}) for stat in staty if stat['region'] == "Europe"]
+# print(staty_evropy_area2)
+# sečíst plochu za celou Evropu
+staty_evropy_area3 = sum(staty_evropy_area2)
+print(staty_evropy_area3)
+
+# 3) Vytvor seznam statu reprezentovanych slovniky, kde bude pouze 'name' a 'capital'  
+# tedy v tomto formatu: [{'name': 'Afghanistan, 'capital': 'Kabul'}, ...]
+# TADY PROSÍM O RADU # - nevím, jak ze slovníků osekat nadbytečné atribut (populace, subregion a tak)
+# chtěla jsem do prázdného listu přidávat z původního, nebo zase naopak popem mazat poslední prvkym ale nenacházím správný tvar
+
 
 # -------------------------------
 
