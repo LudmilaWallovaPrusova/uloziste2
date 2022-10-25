@@ -534,6 +534,7 @@ print(staty_evropy_area3)
 # chtěla jsem do prázdného listu přidávat z původního, nebo zase naopak popem mazat poslední prvkym ale nenacházím správný tvar
 
 
+
 # -------------------------------
 
 class Nemoc:
