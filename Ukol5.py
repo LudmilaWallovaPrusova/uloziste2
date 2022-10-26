@@ -489,7 +489,6 @@ staty = [
     {'name': 'Zimbabwe', 'capital': 'Harare', 'region': 'Africa', 'subregion': 'Eastern Africa', 'population': 14240168,
      'area': 390757.0}]
 
-
 # 1) vypsat všechny státy
 # nejdřív do jednoho listu
 staty_vse = [stat['name']  for stat in staty]
@@ -530,10 +529,13 @@ print(staty_evropy_area3)
 
 # 3) Vytvor seznam statu reprezentovanych slovniky, kde bude pouze 'name' a 'capital'  
 # tedy v tomto formatu: [{'name': 'Afghanistan, 'capital': 'Kabul'}, ...]
-# TADY PROSÍM O RADU # - nevím, jak ze slovníků osekat nadbytečné atribut (populace, subregion a tak)
-# chtěla jsem do prázdného listu přidávat z původního, nebo zase naopak popem mazat poslední prvkym ale nenacházím správný tvar
 
-
+staty2= []
+for bigdict in staty:
+    subdict = {'name': bigdict['name'], 'capital': bigdict['capital']}
+    print(subdict)
+    staty2.append(subdict)
+print(staty2)
 
 # -------------------------------
 
