@@ -1,0 +1,38 @@
+import datetime
+import sys
+
+from datetime import datetime, timedelta, date
+prvni = datetime(2021, 7, 1)
+druha = datetime(2021, 8, 10)
+posledni = datetime(2021, 8, 31)
+cena1 = 250
+cena2 = 180
+
+zadejdatum = input("Zadejte datum vstupenky ve středoevropském tvaru bez mezer: ")
+
+cisel = 0
+for znak in zadejdatum:
+    if znak in "0123456789":
+        cisel = cisel + 1
+if len(zadejdatum) != 10 or zadejdatum[2] != "." or zadejdatum[5] != "." or cisel !=8:
+    print("Nemá správný formát, znova, pls...")
+    sys.exit()
+else:
+    zadejdatumF = datetime.strptime(zadejdatum, "%d.%m.%Y")
+
+if zadejdatumF < prvni or zadejdatumF > posledni:
+    print("Zadané datum mimo provozní dobu, zavřeno!")
+    sys.exit()
+else:
+    listku = int(input("Zadejte počet lístků: "))
+
+# print(f'Hledám {listku} lístků na {zadejdatum}...')
+
+if zadejdatumF >= prvni and zadejdatumF < druha:
+    cena = listku * cena1
+    print(f'1 lístek na {zadejdatum} stojí {cena1} Kč.')
+    print(f'{listku} listku na {zadejdatum} stojí {cena} Kč.')
+elif zadejdatumF >= druha and zadejdatumF <= posledni:
+    cena = listku * cena2
+    print(f'1 lístek na {zadejdatum} stojí {cena2} Kč.')
+    print(f'{listku} listku na {zadejdatum} stojí {cena} Kč.')
